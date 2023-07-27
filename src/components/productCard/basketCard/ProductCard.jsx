@@ -23,7 +23,7 @@ const ProductCard = ({product}) => {
     };
 
     return (
-        <Card variant='outlined' className={styles.basket_card} sx={{ display: 'flex',justifyContent:'space-between', alignItems:'start' }}>
+        <Card variant='outlined' className={styles.basket_card} sx={{ display: 'flex',justifyContent:'space-between', alignItems:'start', border:'none'}} >
             <Box sx={{ display: 'flex'}}>
                 <CardMedia
                     component="img"

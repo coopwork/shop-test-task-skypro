@@ -48,7 +48,7 @@ const ProductCard = ({product}) => {
     }
 
     return (
-        <Card variant='outlined' className={styles.product_card}>
+        <Card variant='outlined' className={styles.product_card} sx={{border:'none'}} >
             <CardMedia
                 sx={{ aspectRatio:'16/10' }}
                 image={product?.photo || notImage}
