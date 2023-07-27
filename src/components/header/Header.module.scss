@@ -1,12 +1,18 @@
-.appHeader{
+.app_header{
   background-color: #CCCCCC;
   color: #fff;
+  padding: .7rem 0 .7rem 0;
+  margin-bottom: 1rem;
 
   .appHeader_wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+
+    .header_logo{
+      font-size: 3vmin;
+    }
 
     .appHeader_navigation{
       display: flex;
@@ -16,6 +22,8 @@
       a{
         color: inherit;
         text-decoration: none;
+        display: flex;
+        align-items: center;
       }
     }
   }

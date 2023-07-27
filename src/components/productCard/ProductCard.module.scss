@@ -1,0 +1,48 @@
+.product_card{
+  position: relative;
+  border: none;
+
+  .card_actions{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    gap: .1rem;
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+
+    .card_action_button{
+      color: #fff;
+      margin: 0;
+      min-width: auto;
+
+      .card_button_icon{
+        color: inherit;
+        filter: drop-shadow(0 0 1rem #000);
+        &_shoped{
+          color: greenyellow;
+        }
+      }
+    }
+  }
+  &:hover .card_actions{
+    opacity: 1;
+  }
+}
+
+.basket_card{
+  border: none;
+
+  button{
+    color: inherit;
+    text-decoration: underline;
+    text-transform: none;
+  }
+
+  .basket_product_counter{
+    max-width: 4rem;
+  }
+}
+
+
+

@@ -1,20 +1,33 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import {commonNavigation} from "../../utils/consts/HeaderNavigation.js";
+import {createHeaderNavigation} from "../../utils/consts/HeaderNavigation.jsx";
 import styles from "./Header.module.scss";
+import {Badge} from "@mui/material";
+import {useDebounce} from "../../hooks/UseDebounce.jsx";
 
 const Header = () => {
+    const [viewport, setViewport] = useState(window.innerWidth);
+    const debouncedValue = useDebounce(viewport, 150);
+
+    useEffect(() => {
+        window.addEventListener('resize',(e)=>{
+            setViewport(window.innerWidth)
+        })
+    }, [debouncedValue]);
+
     return (
-        <header className={styles.appHeader}>
+        <header className={styles.app_header}>
             <div className={`${styles.appHeader_wrapper} container`}>
-                <div>
-                    Интерьер
+                <div className={styles.header_logo}>
+                    <b>Интерьер.</b>
                 </div>
                 <nav className={styles.appHeader_navigation}>
-                    {commonNavigation.map((navigation, i)=>(
-                        <Link to={navigation.path} key={navigation.title}>
-                            {navigation.title}
-                        </Link>
+                    {createHeaderNavigation().map((navigation, i)=>(
+                        <Badge badgeContent={navigation.alerts} color="secondary" key={navigation.title}>
+                            <Link to={navigation.path}>
+                                {viewport < 650 ? <>{navigation.icon}</> : <>{navigation.title}</>}
+                            </Link>
+                        </Badge>
                     ))}
                 </nav>
             </div>
